@@ -32,13 +32,12 @@
         width: 800px;
        }
        button{
-        height: 150px;
+        height: 40px;
         width: 100%;
         margin: 10px 0px;
         cursor: pointer;
         border:none;
         background-color: aqua;
-        font-size: 40px;
        }
        .grid{
         width: 100%;
@@ -48,12 +47,9 @@
         color: green;
        }
        h1{
-        font-size: 50px;
+        font-size: 40px;
         text-align: center;
        }
-        h2{
-         font-size: 40px;
-        }
        @media (max-width:900px){
         body{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -66,7 +62,7 @@
         font-weight: bold;
         font-size: 60px;
         cursor: pointer;
-        padding:17px 0px;
+        padding:10px 0px;
   
        }
        .row{
@@ -75,15 +71,15 @@
        }
        .container{
         position: absolute;
-        top:30%;
+        top:50%;
         left:50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-60%,-60%);
         border: 0px solid;
         height: 400px;
-        width: 300px;
+        width: 200px;
        }
        button{
-        height: 70px;
+        height: 100px;
         width: 100%;
         margin: 10px 0px;
         cursor: pointer;
@@ -149,9 +145,9 @@ function checkWinner() {
   ) {
    //document.write("Winner is "+currentPlayer);
    document.getElementsByTagName("h2")[0].innerText="Winner is "+currentPlayer;
-   var winner=new Audio(sound/win.wav);
-   winner.play();
    winner=1;
+   let audio1=new Audio("./sound/win.wav");
+   audio1.play();     
     return;
   }
 /*let i=0;
@@ -163,12 +159,12 @@ function checkWinner() {
   }
   if (i==arr.length) {
     document.write(`Draw!!`); 
-    var draw=new Audio(sound/draw.mp3);
-    draw.play();
   }
     */
    if(!arr.some(e=>e==null)){
    document.getElementsByTagName("h2")[0].innerText="Draw!!";
+   let audio=new Audio("./sound/draw.mp3");
+   audio.play();    
    return;
    }
 }
@@ -176,7 +172,7 @@ function checkWinner() {
 function handleClick(el) {
   const id = Number(el.id);
   if (arr[id] !== null) return;
-  if(winner==1) return;
+  if(winner==1)return;  
   arr[id] = currentPlayer;
   el.innerText = currentPlayer;
   checkWinner();
