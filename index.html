@@ -149,6 +149,8 @@ function checkWinner() {
   ) {
    //document.write("Winner is "+currentPlayer);
    document.getElementsByTagName("h2")[0].innerText="Winner is "+currentPlayer;
+   var winner=new Audio(sound/win.wav);
+   winner.play();
    winner=1;
     return;
   }
@@ -161,6 +163,8 @@ function checkWinner() {
   }
   if (i==arr.length) {
     document.write(`Draw!!`); 
+    var draw=new Audio(sound/draw.mp3);
+    draw.play();
   }
     */
    if(!arr.some(e=>e==null)){
